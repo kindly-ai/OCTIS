@@ -242,11 +242,11 @@ class CTM(AbstractModel):
     @staticmethod
     def load_bert_data(bert_path, texts, bert_model):
         if bert_path is not None:
-            if os.path.exists(bert_path):
-                bert_ouput = pkl.load(open(bert_path, 'rb'))
-            else:
-                bert_ouput = bert_embeddings_from_list(texts, bert_model)
-                pkl.dump(bert_ouput, open(bert_path, 'wb'))
+            # if os.path.exists(bert_path):
+            #     bert_ouput = pkl.load(open(bert_path, 'rb'))
+            # else:
+            bert_ouput = bert_embeddings_from_list(texts, bert_model)
+            pkl.dump(bert_ouput, open(bert_path, 'wb'))
         else:
             bert_ouput = bert_embeddings_from_list(texts, bert_model)
         return bert_ouput
